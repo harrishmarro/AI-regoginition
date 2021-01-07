@@ -14,6 +14,8 @@ from langdetect import detect
 import pyjokes
 import pyowm
 global command
+global c
+c=1
 
 
 r = sr.Recognizer()
@@ -80,6 +82,13 @@ def play_siri():
         talk('Current weather in %s is %s. The maximum temperature is %0.2f and the minimum temperature is %0.2f degree celcius and feels like %s' % (city, k, p['temp_max'], p['temp_min'],p['feels_like']))
     elif 'nothing' in reply:
         talk("i am going to sleep")
+        global c
+        c=0
     elif 'whats your life span'in reply:
         talk("my life span is 2,37,972 years")
-play_siri()    
+while True:
+    play_siri()
+    if c==0:
+        print(" ok")
+        break
+    
